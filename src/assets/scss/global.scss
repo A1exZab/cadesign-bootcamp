@@ -1,0 +1,97 @@
+//Обнуление стилей
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Helios', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+._container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: content-box;
+}
+
+@media (max-width: 1024px) {
+  ._container {
+    max-width: 688px;
+  }
+}
+
+@media (max-width: 767px) {
+  ._container {
+    min-width: 280px;
+  }
+}
+
+// Глобальные цвета
+$main-blue: #003264;
+$dark: #242627;
+$orange: #e9862a;
+$white: #ffffff;
+$blue: #187cd3;
+$gray: #c3c8c8;
+$stroke: #ebebeb;
+
+//Шрифты
+@font-face {
+  font-family: 'Helios';
+  src: url('../fonts/helios.ttf');
+}
+
+@font-face {
+  font-family: 'HeliosC Bold';
+  src: url('../fonts/heliosc-bold.ttf');
+}
+
+@font-face {
+  font-family: 'Gilroy Medium';
+  src: url('../fonts/gilroy-medium.ttf');
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
