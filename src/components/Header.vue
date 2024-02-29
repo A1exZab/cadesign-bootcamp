@@ -1,6 +1,17 @@
 <script setup>
-import BurgerMenu from './BurgerMenu.vue'
-import Socials from './Socials.vue'
+import { ref } from 'vue'
+import SocialLink from './SocialLink.vue'
+import MobileMenu from './MobileMenu.vue'
+import Modal from './Modal.vue'
+
+const isModalOpened = ref(false)
+
+const openModal = () => {
+  isModalOpened.value = true
+}
+const closeModal = () => {
+  isModalOpened.value = false
+}
 </script>
 
 <template>
@@ -9,7 +20,7 @@ import Socials from './Socials.vue'
       <a class="header__logo" href="#">
         <icon name="cadesign-logo" />
       </a>
-      <nav class="header__menu">
+      <nav v-if="!isModalOpened" class="header__menu">
         <ul class="menu__list">
           <li class="menu__item">
             <a href="#" class="menu__link">О нас</a>
@@ -27,13 +38,18 @@ import Socials from './Socials.vue'
             <a href="#" class="menu__link">Контакты</a>
           </li>
           <li class="menu__item">
-            <Socials />
+            <SocialLink />
           </li>
         </ul>
-        <BurgerMenu />
+        <div class="header__menu_button" @click="openModal">
+          <span></span>
+        </div>
       </nav>
     </div>
   </header>
+  <Modal :isOpen="isModalOpened" @modal-close="closeModal">
+    <MobileMenu @closeModal="closeModal" />
+  </Modal>
 </template>
 
 <style lang="scss" scoped>
@@ -44,30 +60,29 @@ import Socials from './Socials.vue'
 .header__container {
   display: flex;
   justify-content: space-between;
-  min-height: 98px;
+  height: 98px;
 }
-
 .header__logo {
-  margin: 46px 0 0 0;
+  margin: 46px 0 40px 0;
   height: 25px;
   width: 115px;
 }
 
 .header__menu {
   display: flex;
-  margin: 49px 0 0 0;
+  flex-grow: 1;
+  max-width: 882px;
+  margin-top: 49px;
 }
 
 .menu__list {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .menu__item {
-  &:not(:last-of-type) {
-    margin: 0 64px 0 0;
-  }
-
   &:has(a:hover) {
     border-bottom: 2px solid $orange;
   }
@@ -76,18 +91,66 @@ import Socials from './Socials.vue'
 .menu__link {
   line-height: 20px;
   color: $dark;
+
+  &:hover {
+    color: $orange;
+  }
+}
+.header__menu_button {
+  display: none;
+  position: relative;
+  height: 18px;
+  min-width: 28px;
+  cursor: pointer;
+
+  & span,
+  span::after,
+  span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    display: block;
+    background-color: $main-blue;
+    height: 2px;
+    width: 100%;
+  }
+
+  & span {
+    &::before {
+      top: 8px;
+    }
+
+    &::after {
+      top: 16px;
+    }
+  }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   .header__logo {
-    margin: 34px 0 0 0;
+    margin-top: 34px;
   }
   .header__menu {
+    justify-content: end;
     align-items: center;
     margin: 0;
   }
   .menu__list {
     display: none;
+  }
+
+  .header__menu_button {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__container {
+    height: 72px;
+  }
+
+  .header__logo {
+    margin-top: 24px;
   }
 }
 </style>

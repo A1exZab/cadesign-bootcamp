@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 
+const isTooltipVisible = ref(false)
+
 const showTooltip = () => {
   isTooltipVisible.value = true
 }
@@ -12,34 +14,33 @@ const hideTooltip = () => {
 const keepTooltipVisible = () => {
   isTooltipVisible.value = true
 }
-const isTooltipVisible = ref(false)
 </script>
 
 <template>
   <div class="social__wrapper">
-    <a class="social__link" href="#" @mouseenter="showTooltip" @mouseleave="hideTooltip"
-      >Социальные сети <span>&#x25BE;</span></a
+    <span class="social-link" @mouseenter="showTooltip" @mouseleave="hideTooltip"
+      >Социальные сети <span>&#x25BE;</span></span
     >
     <div
       v-show="isTooltipVisible"
-      class="social__container"
+      class="social-icons__wrapper"
       @mouseover="keepTooltipVisible"
       @mouseleave="hideTooltip"
     >
-      <nav class="social__links-block">
-        <div class="social__item">
-          <a href="#"><icon name="vk-logo" /></a>
+      <div class="social-icons__container">
+        <div class="social-icons__item">
+          <a href="https://vk.com" target="_blank"><icon name="vk-logo" /></a>
         </div>
-        <div class="social__item">
-          <a href="#"><icon name="fb-logo" /></a>
+        <div class="social-icons__item">
+          <a href=""><icon name="fb-logo" /></a>
         </div>
-        <div class="social__item">
-          <a href="#"><icon name="ok-logo" /></a>
+        <div class="social-icons__item">
+          <a href="https://www.odnoklassniki.ru" target="_blank"><icon name="ok-logo" /></a>
         </div>
-        <div class="social__item">
-          <a href="#"><icon name="inst-logo" /></a>
+        <div class="social-icons__item">
+          <a href=""><icon name="inst-logo" /></a>
         </div>
-      </nav>
+      </div>
     </div>
   </div>
 </template>
@@ -48,7 +49,7 @@ const isTooltipVisible = ref(false)
 .social__wrapper {
   position: relative;
 }
-.social__link {
+.social-link {
   display: block;
   height: 20px;
   margin: 2px 0 0 0;
@@ -56,6 +57,7 @@ const isTooltipVisible = ref(false)
   font-size: 14px;
   line-height: 16px;
   color: $blue;
+  cursor: pointer;
 
   & > span {
     color: $dark;
@@ -65,7 +67,7 @@ const isTooltipVisible = ref(false)
     box-shadow: 0px 17px 46px 0px #00000014;
   }
 }
-.social__container {
+.social-icons__wrapper {
   @include flex-center;
 
   position: absolute;
@@ -80,39 +82,27 @@ const isTooltipVisible = ref(false)
     box-shadow: 0px 17px 46px 0px #00000014;
   }
 }
-.social__links-block {
-  width: 135px;
-  height: 99px;
-  background: #e0e0e0;
-  position: relative;
+
+.social-icons__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.social__item {
+.social-icons__item {
   @include flex-center;
 
-  position: absolute;
   background: $white;
   height: 48px;
   width: 66px;
   cursor: pointer;
+  border: 1px solid #e0e0e0;
 
-  &:nth-of-type(1) {
-    left: 1px;
-    top: 1px;
+  &:nth-of-type(2n) {
+    margin-left: -1px;
   }
 
-  &:nth-of-type(2) {
-    left: 1px;
-    bottom: 1px;
-  }
-
-  &:nth-of-type(3) {
-    right: 1px;
-    top: 1px;
-  }
-
-  &:nth-of-type(4) {
-    right: 1px;
-    bottom: 1px;
+  &:nth-of-type(n + 3) {
+    margin-top: -1px;
   }
 
   & .vue-svg {
