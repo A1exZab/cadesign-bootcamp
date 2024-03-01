@@ -51,7 +51,7 @@ const emit = defineEmits(['closeModal'])
   flex-direction: column;
   background-color: $dark;
   height: 472px;
-  padding: 68px 0 0 0;
+  padding-top: 68px;
   position: relative;
 
   & > .vue-svg {

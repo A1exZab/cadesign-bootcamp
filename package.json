@@ -11,6 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/vue": "^1.5.9",
     "@vueuse/core": "^10.9.0",
     "normalize.css": "^8.0.1",
     "vite-svg-loader": "^5.1.0",

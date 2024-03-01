@@ -42,7 +42,7 @@
 .banner__body {
   position: relative;
   margin-top: 36px;
-  padding: 120px 0 0 0;
+  padding-top: 120px;
   z-index: 4;
 }
 .banner__title {
@@ -50,7 +50,7 @@
   font-family: 'HeliosC Bold';
   font-size: 36px;
   line-height: 42px;
-  margin: 0 0 59px 0;
+  margin-bottom: 59px;
 }
 
 .banner__image {
@@ -67,13 +67,13 @@
 
   &_left {
     top: 0;
-    width: 64%;
+    width: 66%;
     z-index: 2;
   }
 
   &_center {
     z-index: 3;
-    left: 45%;
+    left: 50%;
     bottom: 0;
     height: 95%;
   }
