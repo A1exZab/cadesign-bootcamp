@@ -57,11 +57,13 @@ $staff-block-text: #242627;
   color: #828282;
   margin-bottom: 40px;
 }
+
 .staff-block__description {
   font-size: 18px;
   line-height: 32px;
   color: $staff-block-text;
 }
+
 .staff-block__background {
   width: 100%;
 }
@@ -73,6 +75,7 @@ $staff-block-text: #242627;
   right: 0;
   object-position: -30px;
 }
+
 .arrow-button {
   @include flex-center;
 
@@ -181,7 +184,7 @@ $staff-block-text: #242627;
   .staff-block__description {
     font-size: 12px;
     line-height: 22px;
-    margin-bottom: 34px;
+    margin-bottom: 30px;
   }
   .staff-block__background {
     height: 200px;

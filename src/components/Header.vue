@@ -4,6 +4,7 @@ import SocialLink from './SocialLink.vue'
 import MobileMenu from './MobileMenu.vue'
 import Modal from './Modal.vue'
 
+// Логика отображение модального окна
 const isModalOpened = ref(false)
 
 const openModal = () => {
@@ -20,6 +21,7 @@ const closeModal = () => {
       <a class="header__logo" href="#">
         <icon name="cadesign-logo" />
       </a>
+      <!-- Удаление элемента из DOM при открытом модальном окне -->
       <nav v-if="!isModalOpened" class="header__menu">
         <ul class="menu__list">
           <li class="menu__item">
@@ -47,7 +49,8 @@ const closeModal = () => {
       </nav>
     </div>
   </header>
-  <Modal :isOpen="isModalOpened" @modal-close="closeModal">
+  <!-- Прокидывание в Modal состояния модального окна и функции для его закрытия -->
+  <Modal :isOpen="isModalOpened" @closeModal="closeModal">
     <MobileMenu @closeModal="closeModal" />
   </Modal>
 </template>
@@ -96,6 +99,7 @@ const closeModal = () => {
     color: $orange;
   }
 }
+
 .header__menu_button {
   display: none;
   position: relative;

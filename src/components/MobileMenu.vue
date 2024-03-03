@@ -1,4 +1,5 @@
 <script setup>
+// Объявление события modal-close, которое может сгенерировано компонентом для родителя
 const emit = defineEmits(['closeModal'])
 </script>
 
@@ -67,11 +68,13 @@ const emit = defineEmits(['closeModal'])
   @include flex-center;
   flex-direction: column;
 }
+
 .menu__list_mobile {
   display: flex;
   flex-direction: column;
   max-width: fit-content;
 }
+
 .menu__item_mobile {
   &:not(:last-of-type) {
     margin-bottom: 39px;
@@ -81,6 +84,7 @@ const emit = defineEmits(['closeModal'])
     margin-top: 21px;
   }
 }
+
 .menu__link_mobile {
   color: $white;
 
@@ -88,6 +92,7 @@ const emit = defineEmits(['closeModal'])
     color: $orange;
   }
 }
+
 .social-icons__container_mobile {
   display: flex;
   justify-content: space-between;

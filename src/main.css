@@ -41,10 +41,14 @@ body {
   line-height: 1;
 }
 
+/*Общий контейнер-обертка*/
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
 }
+
+/*Общий контейнер для элементов страницы*/
 
 ._container {
   max-width: 1200px;

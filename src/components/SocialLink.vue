@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
+// Логика отобрадения тултипа
 const isTooltipVisible = ref(false)
 
 const showTooltip = () => {
@@ -21,6 +22,7 @@ const keepTooltipVisible = () => {
     <span class="social-link" @mouseenter="showTooltip" @mouseleave="hideTooltip"
       >Социальные сети <span>&#x25BE;</span></span
     >
+    <!-- Скрытие элемента, когда тултип не виден -->
     <div
       v-show="isTooltipVisible"
       class="social-icons__wrapper"

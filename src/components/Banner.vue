@@ -1,4 +1,19 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import Modal from './Modal.vue'
+// import CallForm from './CallForm.vue'
+
+// Логика отображение модального окна
+
+const isModalOpened = ref(false)
+
+const openModal = () => {
+  isModalOpened.value = true
+}
+const closeModal = () => {
+  isModalOpened.value = false
+}
+</script>
 
 <template>
   <div class="banner">
@@ -8,7 +23,7 @@
           Энергия твоего роста! – <br />
           заряжаем твою карьеру
         </h1>
-        <button class="banner__button">Стать частью команды</button>
+        <button class="banner__button" @click="openModal">Стать частью команды</button>
       </div>
     </div>
     <div class="banner__image">
@@ -31,6 +46,11 @@
         loading="lazy"
       />
     </div>
+    <!-- Прокидывание в Modal состояния модального окна и функции для его закрытия -->
+    <Modal :isOpen="isModalOpened" @closeModal="closeModal">
+      <!-- <CallForm @closeModal="closeModal" -->
+      /></Modal
+    >
   </div>
 </template>
 
@@ -39,12 +59,14 @@
   position: relative;
   height: 448px;
 }
+
 .banner__body {
   position: relative;
   margin-top: 36px;
   padding-top: 120px;
   z-index: 4;
 }
+
 .banner__title {
   color: $white;
   font-family: 'HeliosC Bold';
@@ -92,6 +114,7 @@
 @media (max-width: 1279px) {
   .banner {
     height: 398px;
+    margin-bottom: 62px;
   }
   .banner__body {
     margin: 0;
@@ -130,7 +153,6 @@
   }
   .banner__image {
     &_left {
-      // left: 10%;
       width: 150%;
       z-index: 2;
     }

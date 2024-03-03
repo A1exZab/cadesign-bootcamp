@@ -7,7 +7,7 @@ $blue: #187cd3;
 $gray: #c3c8c8;
 $stroke: #ebebeb;
 
-//Шрифты
+// Шрифты
 @font-face {
   font-family: 'Helios';
   src: url('@/assets/fonts/helios.ttf');
@@ -23,6 +23,7 @@ $stroke: #ebebeb;
   src: url('@/assets/fonts/gilroy-medium.ttf');
 }
 
+// Миксины
 @mixin flex-center {
   display: flex;
   justify-content: center;

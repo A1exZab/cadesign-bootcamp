@@ -1,3 +1,5 @@
+// Переиспользуемый vue компонент для использования svg файлов
+
 <script setup>
 import { defineAsyncComponent } from 'vue'
 
@@ -8,6 +10,7 @@ const props = defineProps({
   }
 })
 
+// Используется для загрузки svg только тогда, когда это необходимо
 const icon = defineAsyncComponent(() => import(`@/assets/images/${props.name}.svg`))
 </script>
 

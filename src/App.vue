@@ -4,6 +4,7 @@ import './main.css'
 import Header from './components/Header.vue'
 import Banner from './components/Banner.vue'
 import StaffBlock from './components/StaffBlock.vue'
+import TeasersBlock from './components/TeasersBlock.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import StaffBlock from './components/StaffBlock.vue'
     <Header />
     <main class="content">
       <Banner />
+      <TeasersBlock />
       <StaffBlock />
     </main>
   </div>
