@@ -1,17 +1,27 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 //Объявление props компонента (состояние модального окна)
-defineProps({
+const props = defineProps({
   isOpen: Boolean
 })
+
+// const showModal = ref(props.isOpen)
 
 // Объявление события modal-close, которое может сгенерировано компонентом для родителя
 const emit = defineEmits(['closeModal'])
 
 const target = ref(null)
 onClickOutside(target, () => emit('closeModal'))
+
+watchEffect(() => {
+  if (props.isOpen) {
+    document.body.classList.add('modal-open')
+  } else {
+    document.body.classList.remove('modal-open')
+  }
+})
 </script>
 
 <template>
@@ -33,8 +43,11 @@ onClickOutside(target, () => emit('closeModal'))
   width: 100%;
   height: 100%;
   background-color: rgba(41, 41, 41, 0.9);
+  position: fixed;
+  overflow: auto;
 }
 .modal__container {
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 </style>

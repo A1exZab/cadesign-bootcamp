@@ -90,6 +90,11 @@ const props = defineProps({
   .teaser__container {
     flex-basis: 100%;
     margin: 0;
+
+    &:hover {
+      box-shadow: none;
+      border: 1px solid #ededed;
+    }
   }
 }
 

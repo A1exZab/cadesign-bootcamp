@@ -6,6 +6,8 @@ import 'vue3-carousel/dist/carousel.css'
 import TeaserItem from './TeaserItem.vue'
 import * as data from '@/data.json'
 
+const { teasers } = data
+
 // Настройки для карусели
 const settings = {
   itemsToShow: 1,
@@ -52,7 +54,7 @@ onUnmounted(() => {
   <div v-if="viewportWidth < 1279" class="teasers__container _container">
     <!-- Отображение компонента карусели -->
     <Carousel :settings="settings" :breakpoints="breakpoints">
-      <Slide v-for="(teaser, index) in data.teasers" :key="index">
+      <Slide v-for="(teaser, index) in teasers" :key="index">
         <TeaserItem
           :key="index"
           :path="teaser.path"
@@ -88,12 +90,6 @@ onUnmounted(() => {
     border-radius: 3px;
     background: #e0e0e0;
   }
-}
-
-.carousel__track :not(.carousel__slide--visible) > div {
-  // border: none;
-  // box-shadow: none;
-  // display: none;
 }
 
 .carousel__pagination-button:hover::after,

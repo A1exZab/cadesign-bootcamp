@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import Modal from './Modal.vue'
-// import CallForm from './CallForm.vue'
+import CallForm from './CallForm.vue'
 
 // Логика отображение модального окна
 
@@ -48,9 +48,8 @@ const closeModal = () => {
     </div>
     <!-- Прокидывание в Modal состояния модального окна и функции для его закрытия -->
     <Modal :isOpen="isModalOpened" @closeModal="closeModal">
-      <!-- <CallForm @closeModal="closeModal" -->
-      /></Modal
-    >
+      <CallForm @closeModal="closeModal"
+    /></Modal>
   </div>
 </template>
 
