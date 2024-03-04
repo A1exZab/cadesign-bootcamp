@@ -126,8 +126,10 @@ const validateForm = () => {
 
 const submitForm = () => {
   validateForm()
-  console.log(formData)
-  // Дальнейшая логика для обработки данных формы
+  if (isValid.value) {
+    console.log(formData)
+    // Дальнейшая логика для обработки данных формы
+  }
 }
 </script>
 
@@ -395,6 +397,48 @@ const submitForm = () => {
   }
 }
 
+.form-call__input-container_birthday {
+  & label {
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: 28px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #828282;
+  }
+}
+
+.form-call__input_date {
+  &::-webkit-calendar-picker-indicator {
+    background: url('@/assets/images/calendar-icon.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    top: calc(50% - 8px);
+    right: 18px;
+    cursor: pointer;
+    position: absolute;
+    opacity: 1;
+  }
+
+  &::-webkit-input-placeholder {
+    min-height: 14px;
+  }
+
+  &:focus::-webkit-calendar-picker-indicator {
+    top: calc(50% - 8px);
+  }
+
+  &::-webkit-datetime-edit {
+    opacity: 0;
+  }
+
+  &:focus::-webkit-datetime-edit {
+    opacity: 1;
+  }
+}
+
 .form-call__input-container_phone {
   & label {
     display: block;
@@ -640,7 +684,7 @@ const submitForm = () => {
 
     &:has(input:focus) {
       & input {
-        padding: 24px 0 10px 12px;
+        padding: 24px 11px 10px 12px;
       }
 
       & label {
