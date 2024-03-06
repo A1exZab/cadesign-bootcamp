@@ -415,7 +415,6 @@ const submitForm = () => {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 16px;
-    top: calc(50% - 8px);
     right: 18px;
     cursor: pointer;
     position: absolute;
@@ -427,7 +426,7 @@ const submitForm = () => {
   }
 
   &:focus::-webkit-calendar-picker-indicator {
-    top: calc(50% - 8px);
+    top: calc(50% - 10px);
   }
 
   &::-webkit-datetime-edit {
@@ -694,6 +693,10 @@ const submitForm = () => {
         line-height: 12px;
       }
     }
+  }
+
+  .form-call__input_date:focus::-webkit-calendar-picker-indicator {
+    top: calc(50% - 8px);
   }
 
   .form-call__input-container_phone {

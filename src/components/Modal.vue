@@ -34,7 +34,7 @@ watchEffect(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .modal__mask {
   position: fixed;
   z-index: 50;
@@ -43,11 +43,10 @@ watchEffect(() => {
   width: 100%;
   height: 100%;
   background-color: rgba(41, 41, 41, 0.9);
-  position: fixed;
   overflow: auto;
 }
 .modal__container {
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
+  max-width: fit-content;
 }
 </style>

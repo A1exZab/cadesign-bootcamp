@@ -52,7 +52,7 @@ const emit = defineEmits(['closeModal'])
   flex-direction: column;
   background-color: $dark;
   height: 472px;
-  width: 100%;
+  width: 100vw;
   padding-top: 68px;
   position: relative;
 
